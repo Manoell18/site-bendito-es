@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bendito És — Ateliê de peças religiosas</title>
+<meta name="description" content="Ateliê de restauração, personalização e artesanato sacro feito à mão em São Bento e Catolé do Rocha, Paraíba.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#100904">
+
+<link rel="icon" href="imagens/logo-bendito-es.png" type="image/png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Bendito És — Ateliê de peças religiosas">
+<meta property="og:description" content="Ateliê de restauração, personalização e artesanato sacro feito à mão em São Bento e Catolé do Rocha, Paraíba.">
+<meta property="og:image" content="imagens/hero-bendito-es.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bendito És — Ateliê de peças religiosas">
+<meta name="twitter:description" content="Ateliê de restauração, personalização e artesanato sacro feito à mão em São Bento e Catolé do Rocha, Paraíba.">
+<meta name="twitter:image" content="imagens/hero-bendito-es.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="imagens/hero-bendito-es.webp" media="(min-width: 761px)">
+<link rel="preload" as="image" href="imagens/hero-bendito-es-mobile.webp" media="(max-width: 760px)">
+
+<style>
+  :root{
+    /* Paleta — referência: indextest.html */
+    --color-warm-cream:#ffedd7;
+    --color-walnut-shadow:#100904;
+    --color-bark-brown:#382416;
+    --color-cork-border:#40372e;
+    --color-driftwood:#6c5f51;
+    --color-gold-accent:#c9a45c;
+
+    --radius:2px;
+
+    /* Tokens do menu e do rodapé — referência: indextest.html */
+    --font-ui:'halyard-display-variable','Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --font-arial:'Arial',ui-sans-serif,system-ui,sans-serif;
+    --font-weight-medium:500;
+
+    --text-legal:8px;
+    --text-micro:10px;
+    --text-nav:12px;
+    --text-small:14px;
+
+    --spacing-6:6px;
+    --spacing-10:10px;
+    --spacing-12:12px;
+    --spacing-18:18px;
+    --spacing-24:24px;
+    --spacing-31:31px;
+    --spacing-41:41px;
+    --spacing-45:45px;
+    --spacing-68:68px;
+    --spacing-204:204px;
+
+    --element-gap:18px;
+    --page-gutter:var(--spacing-68);
+  }
+
+  @media (min-width:1500px){
+    :root{ --page-gutter:var(--spacing-204); }
+  }
+
+  @media (max-width:900px){
+    :root{ --page-gutter:var(--spacing-24); }
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  html,body{overflow-x:hidden;}
+
+  body{
+    margin:0;
+    background-color:var(--color-walnut-shadow);
+    background-image:radial-gradient(circle at 1px 1px, rgba(108,95,81,0.25) 1px, transparent 0);
+    background-size:24px 24px;
+    color:var(--color-warm-cream);
+    font-family:'Jost', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    color:var(--color-warm-cream);
+    margin:0;
+    font-weight:600;
+    line-height:1.16;
+  }
+
+  /* Adicionado figure para zerar a margem padrão do navegador e manter o layout exato */
+  p, figure {margin:0;}
+
+  a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  img,svg{
+    display:block;
+    max-width:100%;
+  }
+
+  a:focus-visible,
+  button:focus-visible{
+    outline:2px solid var(--color-warm-cream);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+    position:relative;
+  }
+
+  /* ---------- Menu — referência: indextest.html ---------- */
+
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:60;
+    background:transparent;
+    border-bottom:1px solid transparent;
+    transition:background-color 0.3s ease, border-color 0.3s ease;
+    font-family:var(--font-ui);
+  }
+
+  header.is-scrolled{
+    background:var(--color-walnut-shadow);
+    border-bottom-color:var(--color-cork-border);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:var(--spacing-24);
+    padding:var(--spacing-24) var(--page-gutter);
+  }
+
+  .nav-brand{
+    font-size:var(--text-small);
+    font-weight:var(--font-weight-medium);
+    text-transform:uppercase;
+    line-height:1;
+    white-space:nowrap;
+    color:var(--color-warm-cream);
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:var(--spacing-24);
+  }
+
+  .nav-links a{
+    font-size:var(--text-nav);
+    font-weight:var(--font-weight-medium);
+    text-transform:uppercase;
+    line-height:1;
+    color:var(--color-warm-cream);
+    padding-bottom:var(--spacing-6);
+    border-bottom:1px dashed transparent;
+  }
+
+  .nav-links a:hover{opacity:0.7;}
+  .nav-links a.active{border-bottom-color:var(--color-warm-cream);}
+
+  .nav a:focus-visible,
+  .nav button:focus-visible{
+    outline:1px solid var(--color-warm-cream);
+    outline-offset:var(--spacing-6);
+  }
+
+  .nav-toggle{
+    display:none;
+    background:transparent;
+    border:none;
+    padding:0;
+    color:var(--color-warm-cream);
+    font-family:var(--font-ui);
+    font-size:var(--text-nav);
+    font-weight:var(--font-weight-medium);
+    text-transform:uppercase;
+    line-height:1;
+    cursor:pointer;
+  }
+
+  .nav-toggle .is-close{display:none;}
+  .nav-toggle[aria-expanded="true"] .is-open{display:none;}
+  .nav-toggle[aria-expanded="true"] .is-close{display:inline;}
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:96px 0 60px;
+    overflow:hidden;
+    text-align:left;
+    background-color:var(--color-walnut-shadow);
+    background-image:url("imagens/hero-bendito-es.webp");
+    background-size:cover;
+    background-position:center;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      90deg,
+      rgba(16,9,4,0.62) 0%,
+      rgba(16,9,4,0.34) 42%,
+      rgba(16,9,4,0.05) 68%
+    );
+    pointer-events:none;
+  }
+
+  .hero-inner{
+    position:relative;
+    width:100%;
+  }
+
+  .hero-content{
+    max-width:520px;
+  }
+
+  .hero-content h1{
+    color:var(--color-warm-cream);
+    font-size:clamp(2.6rem, 5.2vw, 4.1rem);
+    margin:0 0 18px;
+    text-shadow:0 3px 20px rgba(16,9,4,0.5);
+    animation:rise 0.7s ease both;
+  }
+
+  .hero-subtitle{
+    font-family:'Jost', sans-serif;
+    font-size:clamp(1.05rem, 2vw, 1.32rem);
+    font-weight:500;
+    color:var(--color-gold-accent);
+    margin-bottom:20px;
+    text-shadow:0 2px 14px rgba(16,9,4,0.45);
+    animation:rise 0.7s ease both 0.1s;
+  }
+
+  .hero-desc{
+    max-width:420px;
+    color:rgba(255,237,215,0.86);
+    font-size:1rem;
+    margin-bottom:38px;
+    text-shadow:0 2px 12px rgba(16,9,4,0.4);
+    animation:rise 0.7s ease both 0.2s;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    animation:rise 0.7s ease both 0.3s;
+  }
+
+  @keyframes rise{
+    from{
+      opacity:0;
+      transform:translateY(14px);
+    }
+
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-content h1,
+    .hero-subtitle,
+    .hero-desc,
+    .hero-actions{
+      animation:none;
+    }
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 28px;
+    border-radius:var(--radius);
+    font-size:0.98rem;
+    font-weight:500;
+    background:var(--color-bark-brown);
+    color:var(--color-warm-cream);
+    border:1px solid var(--color-driftwood);
+  }
+
+  .btn svg{
+    width:18px;
+    height:18px;
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding:92px 0;
+    scroll-margin-top:78px;
+  }
+
+  .section-head{
+    max-width:600px;
+    margin:0 auto 52px;
+    text-align:center;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.8rem, 3vw, 2.4rem);
+  }
+
+  .section-head p{
+    color:var(--color-warm-cream);
+    margin-top:16px;
+  }
+
+  /* ---------- Sobre ---------- */
+
+  #sobre{
+    background:var(--color-walnut-shadow);
+  }
+
+  .sobre-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+
+  .sobre-body{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    color:var(--color-warm-cream);
+    font-size:1.04rem;
+  }
+
+  .sobre-body strong{
+    color:var(--color-warm-cream);
+    font-weight:600;
+  }
+
+  .sobre-photo{
+    display:flex;
+    justify-content:center;
+  }
+
+  .sobre-photo img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    max-width:320px;
+    filter:drop-shadow(0 22px 28px rgba(0,0,0,0.35));
+    -webkit-mask-image:radial-gradient(ellipse 72% 88% at 50% 42%, #000 62%, transparent 100%);
+    mask-image:radial-gradient(ellipse 72% 88% at 50% 42%, #000 62%, transparent 100%);
+  }
+
+  /* ---------- Serviços ---------- */
+
+  .services{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+
+  .service{
+    background:var(--color-bark-brown);
+    border:1px solid var(--color-cork-border);
+    border-top:3px solid var(--color-gold-accent);
+    box-shadow:0 12px 28px rgba(0,0,0,0.25);
+    padding:38px 30px;
+    text-align:center;
+  }
+
+  .service-icon{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 18px;
+  }
+
+  .service h3{
+    font-size:1.2rem;
+    margin-bottom:12px;
+  }
+
+  .service p{
+    color:var(--color-warm-cream);
+    font-size:0.98rem;
+  }
+
+  /* ---------- Galeria ---------- */
+
+  #galeria{
+    background:var(--color-walnut-shadow);
+  }
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+
+  .gallery-photo{
+    background:var(--color-bark-brown);
+    border:1px solid var(--color-cork-border);
+    box-shadow:0 12px 28px rgba(0,0,0,0.25);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  .gallery-photo img{
+    width:100%;
+    aspect-ratio:4/5;
+    flex:none;
+    object-fit:contain;
+    background:var(--color-bark-brown);
+    padding:6px;
+  }
+
+  .gallery-photo figcaption{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.84rem;
+    color:var(--color-warm-cream);
+    text-align:center;
+    padding:10px 8px;
+    border-top:1px solid var(--color-cork-border);
+  }
+
+  /* ---------- Antes e depois ---------- */
+
+  #antes-depois{
+    background:var(--color-walnut-shadow);
+  }
+
+  .ba-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:30px;
+    max-width:980px;
+    margin:0 auto;
+  }
+
+  .ba-card{
+    background:var(--color-bark-brown);
+    border:1px solid var(--color-cork-border);
+    box-shadow:0 14px 32px rgba(0,0,0,0.28);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  .ba-card-frame{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--color-bark-brown);
+    overflow:hidden;
+  }
+
+  .ba-card-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    background:var(--color-bark-brown);
+    padding:8px;
+    opacity:0;
+    transition:opacity 0.5s ease;
+    pointer-events:none;
+  }
+
+  .ba-card-img.is-visible{
+    opacity:1;
+  }
+
+  .ba-card-label{
+    position:absolute;
+    top:10px;
+    left:10px;
+    z-index:2;
+    background:var(--color-walnut-shadow);
+    color:var(--color-warm-cream);
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:var(--radius);
+  }
+
+  .ba-card-title{
+    text-align:center;
+    padding:16px 16px 18px;
+    color:var(--color-warm-cream);
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    border-top:1px solid var(--color-cork-border);
+  }
+
+  .ba-empty{
+    padding:64px 30px;
+    text-align:center;
+    color:var(--color-warm-cream);
+    font-size:0.98rem;
+    grid-column:1 / -1;
+  }
+
+  .ba-card-arrow{
+    position:absolute;
+    z-index:2;
+    top:50%;
+    right:12px;
+    transform:translateY(-50%);
+    width:38px;
+    height:38px;
+    min-width:38px;
+    border-radius:50%;
+    background:rgba(16,9,4,0.55);
+    color:var(--color-warm-cream);
+    border:1px solid var(--color-driftwood);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background 0.25s ease;
+    padding:0;
+  }
+
+  .ba-card-arrow:hover,
+  .ba-card-arrow:focus-visible{
+    background:rgba(16,9,4,0.82);
+  }
+
+  .ba-card-arrow svg{
+    width:16px;
+    height:16px;
+    transition:transform 0.3s ease;
+  }
+
+  .ba-card-arrow.is-after svg{
+    transform:scaleX(-1);
+  }
+
+  /* ---------- Como funciona ---------- */
+
+  .steps{
+    max-width:680px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  .step{
+    display:flex;
+    align-items:flex-start;
+    gap:24px;
+    padding:28px 0;
+    border-bottom:1px solid var(--color-cork-border);
+  }
+
+  .step:last-child{
+    border-bottom:none;
+  }
+
+  .step-number{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.35rem;
+    font-weight:600;
+    color:var(--color-warm-cream);
+    width:44px;
+    height:44px;
+    min-width:44px;
+    border-radius:50%;
+    border:1px solid var(--color-gold-accent);
+    background:var(--color-bark-brown);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .step-text{
+    padding-top:6px;
+  }
+
+  .step-text h3{
+    font-size:1.1rem;
+    margin-bottom:6px;
+  }
+
+  .step-text p{
+    color:var(--color-warm-cream);
+    font-size:0.97rem;
+  }
+
+  /* ---------- Contato ---------- */
+
+  #contato{
+    text-align:center;
+    background-color:var(--color-walnut-shadow);
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,237,215,0.06) 1px, transparent 0);
+    background-size:24px 24px;
+    border-top:1px solid var(--color-cork-border);
+  }
+
+  #contato h2{
+    color:var(--color-gold-accent);
+    font-size:clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom:16px;
+  }
+
+  #contato p{
+    max-width:520px;
+    margin:0 auto 36px;
+    color:var(--color-warm-cream);
+  }
+
+  .contato-actions{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- Footer — referência: indextest.html ---------- */
+
+  footer{
+    border-top:1px dashed var(--color-cork-border);
+    padding:var(--spacing-45) var(--page-gutter);
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:var(--spacing-41);
+    align-items:end;
+    background:var(--color-walnut-shadow);
+    color:var(--color-warm-cream);
+    font-family:var(--font-ui);
+    font-weight:var(--font-weight-medium);
+    line-height:1;
+  }
+
+  .t-legal,
+  .t-micro,
+  .t-nav{
+    font-family:var(--font-ui);
+    font-weight:var(--font-weight-medium);
+    text-transform:uppercase;
+    letter-spacing:normal;
+  }
+
+  .t-legal{font-family:var(--font-arial);font-size:var(--text-legal);line-height:1.2;}
+  .t-micro{font-size:var(--text-micro);line-height:1.2;}
+  .t-nav{font-size:var(--text-nav);line-height:1;}
+
+  .t-dim{color:var(--color-driftwood);}
+  .t-gold{color:var(--color-gold-accent);}
+
+  .link{
+    text-decoration:underline;
+    text-underline-offset:var(--spacing-6);
+    text-decoration-thickness:1px;
+  }
+
+  .link:hover,
+  .link:focus-visible{opacity:0.7;}
+
+  .footer-mark img{width:var(--spacing-68);height:auto;}
+
+  .footer-register{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,160px));
+    gap:var(--element-gap);
+    margin:0;
+  }
+
+  .footer-register div{display:flex;flex-direction:column;gap:var(--spacing-10);}
+  .footer-register dt{color:var(--color-driftwood);}
+  .footer-register dd{margin:0;}
+
+  .footer-close{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:var(--spacing-10);
+    text-align:right;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width:1024px){
+    .wrap{
+      padding:0 26px;
+    }
+
+    section{
+      padding:76px 0;
+    }
+
+    .section-head{
+      margin-bottom:44px;
+    }
+
+    .gallery{
+      gap:18px;
+    }
+
+    .ba-grid{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      max-width:620px;
+    }
+
+    .sobre-grid{
+      gap:38px;
+    }
+
+    .hero{
+      background-position:75% center;
+    }
+  }
+
+  @media (max-width:900px){
+    .nav{
+      padding:var(--spacing-18) var(--page-gutter);
+      position:relative;
+    }
+
+    .nav-toggle{display:block;}
+
+    .nav-links{
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:var(--color-walnut-shadow);
+      border-top:1px dashed var(--color-cork-border);
+      max-height:0;
+      opacity:0;
+      overflow:hidden;
+      visibility:hidden;
+      padding:0 var(--page-gutter);
+      transition:max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease, visibility 0s linear 0.35s;
+    }
+
+    .nav-links.is-open{
+      max-height:320px;
+      opacity:1;
+      visibility:visible;
+      transition-delay:0s;
+      padding:var(--spacing-18) var(--page-gutter) var(--spacing-24);
+    }
+
+    .nav-links a{
+      width:100%;
+      padding:var(--spacing-12) 0;
+      border-bottom:1px dashed var(--color-cork-border);
+    }
+
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-links a.active{border-bottom-color:var(--color-warm-cream);}
+
+    footer{
+      grid-template-columns:1fr;
+      gap:var(--spacing-31);
+      align-items:start;
+    }
+
+    .footer-close{
+      align-items:flex-start;
+      text-align:left;
+    }
+  }
+
+  @media (max-width:760px){
+    .hero{
+      min-height:100vh;
+      min-height:100svh;
+      padding:132px 0 56px;
+      display:flex;
+      align-items:flex-end;
+      background-image:url("imagens/hero-bendito-es-mobile.webp");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero::before{
+      background:linear-gradient(
+        180deg,
+        rgba(16,9,4,0.30) 0%,
+        rgba(16,9,4,0.62) 48%,
+        rgba(16,9,4,0.86) 100%
+      );
+    }
+
+    .hero-content{
+      max-width:100%;
+    }
+
+    .hero-content h1{
+      font-size:clamp(2.3rem, 9vw, 3rem);
+      margin-bottom:14px;
+    }
+
+    .hero-subtitle{
+      font-size:clamp(1rem, 4vw, 1.15rem);
+      margin-bottom:16px;
+    }
+
+    .hero-desc{
+      max-width:100%;
+      font-size:0.96rem;
+      margin-bottom:30px;
+    }
+
+    .wrap{
+      padding:0 20px;
+    }
+
+    section{
+      padding:64px 0;
+    }
+
+    .section-head{
+      margin-bottom:38px;
+    }
+
+    .services{
+      grid-template-columns:1fr;
+    }
+
+    .sobre-grid{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .sobre-photo{
+      order:-1;
+    }
+
+    .sobre-photo img{
+      max-width:230px;
+      margin:0 auto 8px;
+    }
+
+    .gallery{
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .ba-grid{
+      grid-template-columns:1fr;
+      max-width:420px;
+      gap:24px;
+    }
+
+    .ba-card-arrow{
+      width:34px;
+      height:34px;
+      min-width:34px;
+    }
+  }
+
+  @media (max-width:480px){
+    .wrap{
+      padding:0 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .nav-links{transition-duration:0.01ms !important;}
+    header{transition-duration:0.01ms !important;}
+  }
+
+  @media (max-width:360px){
+    .hero-content h1{
+      font-size:clamp(2.1rem, 10vw, 2.6rem);
+    }
+
+    .btn{
+      padding:12px 22px;
+      font-size:0.92rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav" aria-label="Principal">
+
+    <a href="#inicio" class="nav-brand">Bendito És</a>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <span class="is-open">Menu</span>
+      <span class="is-close">Fechar</span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="#sobre">Ateliê</a>
+      <a href="#servicos">Ofício</a>
+      <a href="#galeria">Acervo</a>
+      <a href="#antes-depois">Antes e depois</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+  </nav>
+</header>
+
+<main>
+
+  <!-- ---------- Hero ---------- -->
+
+  <section class="hero" id="inicio">
+
+    <div class="wrap hero-inner">
+
+      <div class="hero-content">
+
+        <h1>Bendito És</h1>
+
+        <p class="hero-subtitle">
+          Restauração e personalização de peças religiosas
+        </p>
+
+        <p class="hero-desc">
+          Devolvemos vida às histórias que atravessam gerações,
+          com respeito, técnica e muito amor pela fé.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="btn"
+            href="https://www.instagram.com/ateliebendito_es/"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"/>
+              <circle cx="12" cy="12" r="3.6"/>
+              <circle cx="16.9" cy="7.1" r="0.6" fill="currentColor" stroke="none"/>
+            </svg>
+
+            Seguir no Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Sobre ---------- -->
+
+  <section id="sobre">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Sobre o ateliê</h2>
+
+      </div>
+
+      <div class="sobre-grid">
+
+        <div class="sobre-body">
+
+          <p>
+            Há anos, chegam às mãos do ateliê imagens, terços e objetos de fé
+            que já viveram histórias inteiras dentro de uma casa. Peças gastas
+            pelo tempo, quebradas no transporte, ou apenas esperando um retoque
+            para voltar a ocupar seu lugar no altar.
+          </p>
+
+          <p>
+            O trabalho é feito com calma, <strong>uma peça de cada vez</strong>.
+            Não existe produção em série: cada restauração e cada detalhe
+            pintado à mão respeitam tanto a peça que chegou quanto a pessoa
+            que vai recebê-la de volta.
+          </p>
+
+          <p>
+            O atendimento acontece em São Bento e em Catolé do Rocha, na Paraíba,
+            sempre combinado pelo Instagram — com fotos, conversa direta e
+            definição de prazo e valores antes de qualquer trabalho começar.
+          </p>
+
+        </div>
+
+        <div class="sobre-photo">
+          <img
+            src="imagens/Santa-Teresinha.webp"
+            alt="Escultura de Santa Teresinha, uma das peças sacras que passam pelo ateliê Bendito És"
+            width="1200"
+            height="1500"
+            loading="lazy"
+          >
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Serviços ---------- -->
+
+  <section id="servicos">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>O que é feito no ateliê</h2>
+
+
+        <p>Quatro frentes de trabalho, sempre artesanais.</p>
+
+      </div>
+
+      <div class="services">
+
+        <!-- Serviço 1 -->
+
+        <div class="service">
+
+          <img
+            class="service-icon"
+            src="imagens/anjo.png"
+            alt=""
+            loading="lazy"
+          >
+
+          <h3>Restauração de peças religiosas</h3>
+
+          <p>
+            Imagens, crucifixos e objetos antigos ganham reparo cuidadoso,
+            sem perder as características originais da peça.
+          </p>
+
+        </div>
+
+        <!-- Serviço 2 -->
+
+        <div class="service">
+
+          <img
+            class="service-icon"
+            src="imagens/pincel.png"
+            alt=""
+            loading="lazy"
+          >
+
+          <h3>Personalização</h3>
+
+          <p>
+            Nomes, datas e pequenos detalhes que transformam uma peça pronta
+            em algo feito especialmente para quem vai recebê-la.
+          </p>
+
+        </div>
+
+        <!-- Serviço 3 -->
+
+        <div class="service">
+
+          <img
+            class="service-icon"
+            src="imagens/terco.png"
+            alt=""
+            loading="lazy"
+          >
+
+          <h3>Artesanato sacro feito à mão</h3>
+
+          <p>
+            Terços, quadros e outros objetos de devoção, produzidos do início
+            ao fim dentro do ateliê.
+          </p>
+
+        </div>
+
+        <!-- Serviço 4 -->
+
+        <div class="service">
+
+          <img
+            class="service-icon"
+            src="imagens/igreja.png"
+            alt=""
+            loading="lazy"
+          >
+
+          <h3>Peças para datas especiais</h3>
+
+          <p>
+            Encomendas para batizado, primeira comunhão, casamento e outras
+            celebrações de família.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Galeria ---------- -->
+
+  <section id="galeria">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Um pouco do que já saiu do ateliê</h2>
+
+
+        <p>
+          Registros de peças restauradas e personalizadas ao longo do tempo.
+        </p>
+
+      </div>
+
+      <div class="gallery">
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/nossa-senhora-fatima-1.webp"
+            alt="Imagem de Nossa Senhora de Fátima, de manto branco com detalhes dourados"
+            loading="lazy"
+          >
+          <figcaption>Nossa Senhora de Fátima 1</figcaption>
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/terco-sao-miguel.webp"
+            alt="Terço São Miguel, de contas azuis e medalha central, sobre tecido escuro"
+            loading="lazy"
+          >
+          <figcaption>Terço São Miguel</figcaption>
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/nossa-senhora-fatima-2.webp"
+            alt="Imagem de Nossa Senhora de Fátima coroada, de manto branco com detalhes dourados"
+            loading="lazy"
+          >
+          <figcaption>Nossa Senhora de Fátima 2</figcaption>
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/sagrada-familia.webp"
+            alt="Imagem branca da Sagrada Familia"
+            loading="lazy"
+          >
+          <figcaption>Sagrada Familia</figcaption>
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/terco-azul.png"
+            alt="Terço azul, com as contas formando um coração e crucifixo dourado"
+            loading="lazy"
+          >
+          <figcaption>Terço Azul</figcaption>
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="imagens/nossa-senhora-aparecida.webp"
+            alt="Imagem de Nossa Senhora Aparecida, de manto azul e coroa"
+            loading="lazy"
+          >
+          <figcaption>Nossa Senhora Aparecida</figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Antes e Depois ---------- -->
+
+  <section id="antes-depois">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Antes e depois das restaurações</h2>
+
+
+        <p>
+          A transformação de cada peça, passo a passo.
+        </p>
+
+      </div>
+
+      <div class="ba-grid" id="ba-grid"></div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Como funciona ---------- -->
+
+  <section id="como-funciona">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Como funciona um pedido</h2>
+
+
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+
+          <span class="step-number">1</span>
+
+          <div class="step-text">
+
+            <h3>Conte o que você precisa</h3>
+
+            <p>
+              Envie fotos da peça ou descreva o que você imagina,
+              direto pelo Instagram.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span class="step-number">2</span>
+
+          <div class="step-text">
+
+            <h3>Combine prazo e valor</h3>
+
+            <p>
+              O pedido é avaliado com calma, e você recebe o que é possível
+              fazer, o prazo e o valor.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span class="step-number">3</span>
+
+          <div class="step-text">
+
+            <h3>Acompanhe até a entrega</h3>
+
+            <p>
+              Cada peça é feita à mão, com atualizações até estar pronta
+              para retirada ou envio.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ---------- Contato ---------- -->
+
+  <section id="contato">
+
+    <div class="wrap">
+
+      <h2>Fale com o ateliê</h2>
+
+      <p>
+        O primeiro contato é sempre pelo Instagram. Conte um pouco do que
+        você precisa e a resposta vem direto por lá.
+      </p>
+
+      <div class="contato-actions">
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/ateliebendito_es/"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect x="3.5" y="3.5" width="17" height="17" rx="4"/>
+            <circle cx="12" cy="12" r="3.6"/>
+            <circle cx="16.9" cy="7.1" r="0.6" fill="currentColor" stroke="none"/>
+          </svg>
+
+          Seguir no Instagram
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ---------- Footer ---------- -->
+
+<footer>
+
+  <div class="footer-mark">
+    <img src="imagens/logo-bendito-es.png" alt="Marca do ateliê Bendito És" loading="lazy">
+  </div>
+
+  <dl class="footer-register t-micro">
+    <div>
+      <dt>Ateliê</dt>
+      <dd class="t-nav">São Bento, Paraíba</dd>
+    </div>
+    <div>
+      <dt>Também em</dt>
+      <dd class="t-nav">Catolé do Rocha, Paraíba</dd>
+    </div>
+  </dl>
+
+  <div class="footer-close">
+    <a
+      class="t-nav link t-gold"
+      href="https://www.instagram.com/ateliebendito_es/"
+      target="_blank"
+      rel="noopener"
+    >@ateliebendito_es</a>
+    <p class="t-legal t-dim">© Bendito És — Todos os direitos reservados</p>
+  </div>
+
+</footer>
+
+<!-- ---------- JavaScript: Antes e Depois ---------- -->
+
+<script>
+var beforeAfterWorks = [
+
+  {
+    title: 'Restauração de São José com o Menino',
+    beforeSrc: 'imagens/antes-sao-jose.webp',
+    beforeAlt: 'Imagem de São José com o Menino Jesus antes da restauração',
+    afterSrc: 'imagens/depois-sao-jose.webp',
+    afterAlt: 'Imagem de São José com o Menino Jesus depois da restauração'
+  },
+
+  {
+    title: 'Restauração da Sagrada Familia',
+    beforeSrc: 'imagens/antes-sagrada-familia.webp',
+    beforeAlt: 'Peças da Sagrada Familia quebradas antes da restauração',
+    afterSrc: 'imagens/depois-sagrada-familia.webp',
+    afterAlt: 'Sagrada Familia restaurada e completa depois da restauração'
+  },
+
+  {
+    title: 'Restauração de Jesus',
+    beforeSrc: 'imagens/antes-Jesus.webp',
+    beforeAlt: 'Peça de Jesus antes da restauração',
+    afterSrc: 'imagens/depois-Jesus.webp',
+    afterAlt: 'Peça de Jesus depois da restauração'
+  }
+
+];
+
+(function(){
+
+  var grid = document.getElementById('ba-grid');
+
+  if(!grid) return;
+
+  if(!beforeAfterWorks.length){
+
+    grid.innerHTML =
+      '<div class="ba-empty">' +
+      'Em breve: os trabalhos de restauração antes e depois aparecerão aqui.' +
+      '</div>';
+
+    return;
+  }
+
+  function escapeHtml(str){
+
+    var div = document.createElement('div');
+
+    div.textContent = str || '';
+
+    return div.innerHTML;
+  }
+
+  function renderCards(){
+
+    grid.innerHTML = beforeAfterWorks.map(function(work, index){
+
+      var title = work.title || 'peça';
+
+      return (
+
+        '<div class="ba-card" data-index="' + index + '">' +
+
+          '<div class="ba-card-frame">' +
+
+            '<span class="ba-card-label" data-role="label">' +
+              'Antes' +
+            '</span>' +
+
+            '<img class="ba-card-img is-visible" ' +
+              'data-role="before" ' +
+              'src="' + escapeHtml(work.beforeSrc) + '" ' +
+              'alt="' + escapeHtml(work.beforeAlt || 'Peça antes da restauração') + '" ' +
+              'loading="lazy">' +
+
+            '<img class="ba-card-img" ' +
+              'data-role="after" ' +
+              'src="' + escapeHtml(work.afterSrc) + '" ' +
+              'alt="' + escapeHtml(work.afterAlt || 'Peça depois da restauração') + '" ' +
+              'loading="lazy">' +
+
+            '<button ' +
+              'type="button" ' +
+              'class="ba-card-arrow" ' +
+              'data-role="arrow" ' +
+              'aria-label="Ver depois de ' + escapeHtml(title) + '"' +
+            '>' +
+
+              '<svg ' +
+                'viewBox="0 0 24 24" ' +
+                'fill="none" ' +
+                'stroke="currentColor" ' +
+                'stroke-width="2" ' +
+                'aria-hidden="true" ' +
+                'focusable="false"' +
+              '>' +
+                '<path d="M9 5l7 7-7 7"/>' +
+              '</svg>' +
+
+            '</button>' +
+
+          '</div>' +
+
+          (
+            work.title
+            ? '<p class="ba-card-title">' +
+              escapeHtml(work.title) +
+              '</p>'
+            : ''
+          ) +
+
+        '</div>'
+
+      );
+
+    }).join('');
+
+  }
+
+  grid.addEventListener('click', function(e){
+
+    var btn = e.target.closest('.ba-card-arrow');
+
+    if(!btn) return;
+
+    var card = btn.closest('.ba-card');
+
+    var beforeImg = card.querySelector('[data-role="before"]');
+    var afterImg = card.querySelector('[data-role="after"]');
+    var label = card.querySelector('[data-role="label"]');
+
+    var work =
+      beforeAfterWorks[
+        parseInt(card.getAttribute('data-index'), 10)
+      ];
+
+    var title =
+      (work && work.title) || 'peça';
+
+    var showingAfter =
+      afterImg.classList.contains('is-visible');
+
+    beforeImg.classList.toggle(
+      'is-visible',
+      showingAfter
+    );
+
+    afterImg.classList.toggle(
+      'is-visible',
+      !showingAfter
+    );
+
+    label.textContent =
+      showingAfter ? 'Antes' : 'Depois';
+
+    btn.classList.toggle(
+      'is-after',
+      !showingAfter
+    );
+
+    btn.setAttribute(
+      'aria-label',
+      (
+        showingAfter
+          ? 'Ver depois de '
+          : 'Ver antes de '
+      ) + title
+    );
+
+  });
+
+  renderCards();
+
+})();
+</script>
+
+<!-- ---------- JavaScript: Menu ---------- -->
+
+<script>
+(function(){
+
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+
+  if(!toggle || !links) return;
+
+  function closeMenu(){
+
+    links.classList.remove('is-open');
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+    toggle.setAttribute(
+      'aria-label',
+      'Abrir menu'
+    );
+
+  }
+
+  function openMenu(){
+
+    links.classList.add('is-open');
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+    toggle.setAttribute(
+      'aria-label',
+      'Fechar menu'
+    );
+
+  }
+
+  toggle.addEventListener('click', function(){
+
+    var isOpen =
+      links.classList.contains('is-open');
+
+    if(isOpen){
+      closeMenu();
+    }else{
+      openMenu();
+    }
+
+  });
+
+  links.querySelectorAll('a').forEach(function(link){
+
+    link.addEventListener(
+      'click',
+      closeMenu
+    );
+
+  });
+
+  document.addEventListener('click', function(e){
+
+    if(!links.classList.contains('is-open')) return;
+
+    if(
+      links.contains(e.target) ||
+      toggle.contains(e.target)
+    ) return;
+
+    closeMenu();
+
+  });
+
+  window.addEventListener('resize', function(){
+
+    if(window.innerWidth > 900){
+      closeMenu();
+    }
+
+  });
+
+  document.addEventListener('keydown', function(e){
+
+    if(e.key === 'Escape' && links.classList.contains('is-open')){
+      closeMenu();
+      toggle.focus();
+    }
+
+  });
+
+})();
+</script>
+
+<!-- ---------- JavaScript: Menu ao rolar ---------- -->
+
+<script>
+(function(){
+
+  var header = document.querySelector('header');
+
+  if(!header) return;
+
+  function updateHeader(){
+
+    header.classList.toggle(
+      'is-scrolled',
+      (window.pageYOffset || document.documentElement.scrollTop) > 10
+    );
+
+  }
+
+  window.addEventListener(
+    'scroll',
+    updateHeader,
+    { passive:true }
+  );
+
+  window.addEventListener('pageshow', updateHeader);
+
+  updateHeader();
+
+})();
+</script>
+
+<!-- ---------- JavaScript: Navegação ativa ---------- -->
+
+<script>
+(function(){
+
+  var sections =
+    document.querySelectorAll('main section[id]');
+
+  var navLinks =
+    document.querySelectorAll('.nav-links a');
+
+  function setActive(id){
+
+    navLinks.forEach(function(link){
+
+      var isActive =
+        link.getAttribute('href') === '#' + id;
+
+      link.classList.toggle(
+        'active',
+        isActive
+      );
+
+    });
+
+  }
+
+  if(
+    'IntersectionObserver' in window &&
+    sections.length
+  ){
+
+    var observer =
+      new IntersectionObserver(
+        function(entries){
+
+          entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+              setActive(
+                entry.target.id
+              );
+
+            }
+
+          });
+
+        },
+        {
+          rootMargin:'-45% 0px -50% 0px',
+          threshold:0
+        }
+      );
+
+    sections.forEach(function(section){
+
+      observer.observe(section);
+
+    });
+
+  }else if(sections.length){
+
+    setActive(
+      sections[0].id
+    );
+
+  }
+
+})();
+</script>
+
+</body>
+</html>
