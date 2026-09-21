@@ -8,7 +8,7 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#100904">
 
-<link rel="icon" href="imagens/logo-bendito-es.png" type="image/png">
+<link rel="icon" href="imagens/favicon.png" type="image/png">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -22,30 +22,27 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="imagens/hero-bendito-es.webp" media="(min-width: 761px)">
-<link rel="preload" as="image" href="imagens/hero-bendito-es-mobile.webp" media="(max-width: 760px)">
+<link rel="preload" as="image" href="imagens/hero-bendito-es.webp" media="(min-width: 761px)" fetchpriority="high">
+<link rel="preload" as="image" href="imagens/hero-bendito-es-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
 
 <style>
   :root{
-    /* Paleta — referência: indextest.html */
     --color-warm-cream:#ffedd7;
     --color-walnut-shadow:#100904;
     --color-bark-brown:#382416;
     --color-cork-border:#40372e;
     --color-driftwood:#6c5f51;
+    --color-driftwood-light:#8c7f70;
     --color-gold-accent:#c9a45c;
 
     --radius:2px;
 
-    /* Tokens do menu e do rodapé — referência: indextest.html */
-    --font-ui:'halyard-display-variable','Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    --font-arial:'Arial',ui-sans-serif,system-ui,sans-serif;
+    --font-ui:'Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     --font-weight-medium:500;
 
-    --text-legal:8px;
-    --text-micro:10px;
+    --text-micro:11px;
     --text-nav:12px;
     --text-small:14px;
 
@@ -92,21 +89,19 @@
 
   h1,h2,h3{
     font-family:'Cormorant Garamond', serif;
-    color:var(--color-warm-cream);
     margin:0;
     font-weight:600;
     line-height:1.16;
   }
 
-  /* Adicionado figure para zerar a margem padrão do navegador e manter o layout exato */
-  p, figure {margin:0;}
+  p, figure{margin:0;}
 
   a{
     color:inherit;
     text-decoration:none;
   }
 
-  ul{
+  ol{
     margin:0;
     padding:0;
     list-style:none;
@@ -130,7 +125,7 @@
     position:relative;
   }
 
-  /* ---------- Menu — referência: indextest.html ---------- */
+  /* Menu */
 
   header{
     position:fixed;
@@ -163,7 +158,15 @@
     text-transform:uppercase;
     line-height:1;
     white-space:nowrap;
-    color:var(--color-warm-cream);
+    position:relative;
+  }
+
+  /* área de toque maior, sem mudar o visual */
+  .nav-brand::after,
+  .nav-toggle::after{
+    content:"";
+    position:absolute;
+    inset:-16px -10px;
   }
 
   .nav-links{
@@ -177,7 +180,6 @@
     font-weight:var(--font-weight-medium);
     text-transform:uppercase;
     line-height:1;
-    color:var(--color-warm-cream);
     padding-bottom:var(--spacing-6);
     border-bottom:1px dashed transparent;
   }
@@ -203,13 +205,14 @@
     text-transform:uppercase;
     line-height:1;
     cursor:pointer;
+    position:relative;
   }
 
   .nav-toggle .is-close{display:none;}
   .nav-toggle[aria-expanded="true"] .is-open{display:none;}
   .nav-toggle[aria-expanded="true"] .is-close{display:inline;}
 
-  /* ---------- Hero ---------- */
+  /* Hero */
 
   .hero{
     position:relative;
@@ -218,7 +221,6 @@
     align-items:center;
     padding:96px 0 60px;
     overflow:hidden;
-    text-align:left;
     background-color:var(--color-walnut-shadow);
     background-image:url("imagens/hero-bendito-es.webp");
     background-size:cover;
@@ -239,7 +241,6 @@
   }
 
   .hero-inner{
-    position:relative;
     width:100%;
   }
 
@@ -248,7 +249,6 @@
   }
 
   .hero-content h1{
-    color:var(--color-warm-cream);
     font-size:clamp(2.6rem, 5.2vw, 4.1rem);
     margin:0 0 18px;
     text-shadow:0 3px 20px rgba(16,9,4,0.5);
@@ -256,7 +256,6 @@
   }
 
   .hero-subtitle{
-    font-family:'Jost', sans-serif;
     font-size:clamp(1.05rem, 2vw, 1.32rem);
     font-weight:500;
     color:var(--color-gold-accent);
@@ -293,15 +292,6 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .hero-content h1,
-    .hero-subtitle,
-    .hero-desc,
-    .hero-actions{
-      animation:none;
-    }
-  }
-
   .btn{
     display:inline-flex;
     align-items:center;
@@ -311,7 +301,6 @@
     font-size:0.98rem;
     font-weight:500;
     background:var(--color-bark-brown);
-    color:var(--color-warm-cream);
     border:1px solid var(--color-driftwood);
   }
 
@@ -320,7 +309,7 @@
     height:18px;
   }
 
-  /* ---------- Sections ---------- */
+  /* Sections */
 
   section{
     padding:92px 0;
@@ -338,11 +327,10 @@
   }
 
   .section-head p{
-    color:var(--color-warm-cream);
     margin-top:16px;
   }
 
-  /* ---------- Sobre ---------- */
+  /* Sobre */
 
   #sobre{
     background:var(--color-walnut-shadow);
@@ -359,12 +347,10 @@
     display:flex;
     flex-direction:column;
     gap:20px;
-    color:var(--color-warm-cream);
     font-size:1.04rem;
   }
 
   .sobre-body strong{
-    color:var(--color-warm-cream);
     font-weight:600;
   }
 
@@ -383,7 +369,7 @@
     mask-image:radial-gradient(ellipse 72% 88% at 50% 42%, #000 62%, transparent 100%);
   }
 
-  /* ---------- Serviços ---------- */
+  /* Serviços */
 
   .services{
     display:grid;
@@ -404,7 +390,6 @@
     width:64px;
     height:64px;
     object-fit:contain;
-    display:block;
     margin:0 auto 18px;
   }
 
@@ -414,11 +399,10 @@
   }
 
   .service p{
-    color:var(--color-warm-cream);
     font-size:0.98rem;
   }
 
-  /* ---------- Galeria ---------- */
+  /* Galeria */
 
   #galeria{
     background:var(--color-walnut-shadow);
@@ -454,13 +438,12 @@
     align-items:center;
     justify-content:center;
     font-size:0.84rem;
-    color:var(--color-warm-cream);
     text-align:center;
     padding:10px 8px;
     border-top:1px solid var(--color-cork-border);
   }
 
-  /* ---------- Antes e depois ---------- */
+  /* Antes e depois */
 
   #antes-depois{
     background:var(--color-walnut-shadow);
@@ -514,7 +497,6 @@
     left:10px;
     z-index:2;
     background:var(--color-walnut-shadow);
-    color:var(--color-warm-cream);
     font-size:0.7rem;
     letter-spacing:0.08em;
     text-transform:uppercase;
@@ -525,7 +507,6 @@
   .ba-card-title{
     text-align:center;
     padding:16px 16px 18px;
-    color:var(--color-warm-cream);
     font-family:'Cormorant Garamond', serif;
     font-size:1.15rem;
     border-top:1px solid var(--color-cork-border);
@@ -534,7 +515,6 @@
   .ba-empty{
     padding:64px 30px;
     text-align:center;
-    color:var(--color-warm-cream);
     font-size:0.98rem;
     grid-column:1 / -1;
   }
@@ -575,14 +555,11 @@
     transform:scaleX(-1);
   }
 
-  /* ---------- Como funciona ---------- */
+  /* Como funciona */
 
   .steps{
     max-width:680px;
     margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    gap:0;
   }
 
   .step{
@@ -601,7 +578,6 @@
     font-family:'Cormorant Garamond', serif;
     font-size:1.35rem;
     font-weight:600;
-    color:var(--color-warm-cream);
     width:44px;
     height:44px;
     min-width:44px;
@@ -623,11 +599,10 @@
   }
 
   .step-text p{
-    color:var(--color-warm-cream);
     font-size:0.97rem;
   }
 
-  /* ---------- Contato ---------- */
+  /* Contato */
 
   #contato{
     text-align:center;
@@ -646,7 +621,6 @@
   #contato p{
     max-width:520px;
     margin:0 auto 36px;
-    color:var(--color-warm-cream);
   }
 
   .contato-actions{
@@ -656,7 +630,7 @@
     flex-wrap:wrap;
   }
 
-  /* ---------- Footer — referência: indextest.html ---------- */
+  /* Footer */
 
   footer{
     border-top:1px dashed var(--color-cork-border);
@@ -666,36 +640,12 @@
     gap:var(--spacing-41);
     align-items:end;
     background:var(--color-walnut-shadow);
-    color:var(--color-warm-cream);
     font-family:var(--font-ui);
+    font-size:var(--text-nav);
     font-weight:var(--font-weight-medium);
     line-height:1;
-  }
-
-  .t-legal,
-  .t-micro,
-  .t-nav{
-    font-family:var(--font-ui);
-    font-weight:var(--font-weight-medium);
     text-transform:uppercase;
-    letter-spacing:normal;
   }
-
-  .t-legal{font-family:var(--font-arial);font-size:var(--text-legal);line-height:1.2;}
-  .t-micro{font-size:var(--text-micro);line-height:1.2;}
-  .t-nav{font-size:var(--text-nav);line-height:1;}
-
-  .t-dim{color:var(--color-driftwood);}
-  .t-gold{color:var(--color-gold-accent);}
-
-  .link{
-    text-decoration:underline;
-    text-underline-offset:var(--spacing-6);
-    text-decoration-thickness:1px;
-  }
-
-  .link:hover,
-  .link:focus-visible{opacity:0.7;}
 
   .footer-mark img{width:var(--spacing-68);height:auto;}
 
@@ -707,7 +657,13 @@
   }
 
   .footer-register div{display:flex;flex-direction:column;gap:var(--spacing-10);}
-  .footer-register dt{color:var(--color-driftwood);}
+
+  .footer-register dt{
+    font-size:var(--text-micro);
+    line-height:1.2;
+    color:var(--color-driftwood-light);
+  }
+
   .footer-register dd{margin:0;}
 
   .footer-close{
@@ -718,7 +674,24 @@
     text-align:right;
   }
 
-  /* ---------- Responsive ---------- */
+  .footer-close a{
+    color:var(--color-gold-accent);
+    text-decoration:underline;
+    text-underline-offset:var(--spacing-6);
+    text-decoration-thickness:1px;
+  }
+
+  .footer-close a:hover,
+  .footer-close a:focus-visible{opacity:0.7;}
+
+  .footer-close p{
+    font-family:Arial,ui-sans-serif,system-ui,sans-serif;
+    font-size:var(--text-micro);
+    line-height:1.2;
+    color:var(--color-driftwood-light);
+  }
+
+  /* Responsivo */
 
   @media (max-width:1024px){
     .wrap{
@@ -792,7 +765,6 @@
     }
 
     .nav-links a:last-child{border-bottom:none;}
-    .nav-links a.active{border-bottom-color:var(--color-warm-cream);}
 
     footer{
       grid-template-columns:1fr;
@@ -808,13 +780,10 @@
 
   @media (max-width:760px){
     .hero{
-      min-height:100vh;
       min-height:100svh;
       padding:132px 0 56px;
-      display:flex;
       align-items:flex-end;
       background-image:url("imagens/hero-bendito-es-mobile.webp");
-      background-size:cover;
       background-position:center;
     }
 
@@ -901,12 +870,6 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .nav-links{transition-duration:0.01ms !important;}
-    header{transition-duration:0.01ms !important;}
-  }
-
   @media (max-width:360px){
     .hero-content h1{
       font-size:clamp(2.1rem, 10vw, 2.6rem);
@@ -916,6 +879,16 @@
       padding:12px 22px;
       font-size:0.92rem;
     }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .nav-links,
+    header{transition-duration:0.01ms !important;}
+    .hero-content h1,
+    .hero-subtitle,
+    .hero-desc,
+    .hero-actions{animation:none;}
   }
 </style>
 </head>
@@ -953,7 +926,7 @@
 
 <main>
 
-  <!-- ---------- Hero ---------- -->
+  <!-- Hero -->
 
   <section class="hero" id="inicio">
 
@@ -1004,7 +977,7 @@
 
   </section>
 
-  <!-- ---------- Sobre ---------- -->
+  <!-- Sobre -->
 
   <section id="sobre">
 
@@ -1049,6 +1022,7 @@
             width="1200"
             height="1500"
             loading="lazy"
+            decoding="async"
           >
         </div>
 
@@ -1058,7 +1032,7 @@
 
   </section>
 
-  <!-- ---------- Serviços ---------- -->
+  <!-- Serviços -->
 
   <section id="servicos">
 
@@ -1068,22 +1042,20 @@
 
         <h2>O que é feito no ateliê</h2>
 
-
         <p>Quatro frentes de trabalho, sempre artesanais.</p>
 
       </div>
 
       <div class="services">
 
-        <!-- Serviço 1 -->
-
         <div class="service">
 
           <img
             class="service-icon"
-            src="imagens/anjo.png"
+            src="imagens/anjo.webp"
             alt=""
             loading="lazy"
+            decoding="async"
           >
 
           <h3>Restauração de peças religiosas</h3>
@@ -1095,15 +1067,14 @@
 
         </div>
 
-        <!-- Serviço 2 -->
-
         <div class="service">
 
           <img
             class="service-icon"
-            src="imagens/pincel.png"
+            src="imagens/pincel.webp"
             alt=""
             loading="lazy"
+            decoding="async"
           >
 
           <h3>Personalização</h3>
@@ -1115,15 +1086,14 @@
 
         </div>
 
-        <!-- Serviço 3 -->
-
         <div class="service">
 
           <img
             class="service-icon"
-            src="imagens/terco.png"
+            src="imagens/terco.webp"
             alt=""
             loading="lazy"
+            decoding="async"
           >
 
           <h3>Artesanato sacro feito à mão</h3>
@@ -1135,15 +1105,14 @@
 
         </div>
 
-        <!-- Serviço 4 -->
-
         <div class="service">
 
           <img
             class="service-icon"
-            src="imagens/igreja.png"
+            src="imagens/igreja.webp"
             alt=""
             loading="lazy"
+            decoding="async"
           >
 
           <h3>Peças para datas especiais</h3>
@@ -1161,7 +1130,7 @@
 
   </section>
 
-  <!-- ---------- Galeria ---------- -->
+  <!-- Galeria -->
 
   <section id="galeria">
 
@@ -1170,7 +1139,6 @@
       <div class="section-head">
 
         <h2>Um pouco do que já saiu do ateliê</h2>
-
 
         <p>
           Registros de peças restauradas e personalizadas ao longo do tempo.
@@ -1185,6 +1153,7 @@
             src="imagens/nossa-senhora-fatima-1.webp"
             alt="Imagem de Nossa Senhora de Fátima, de manto branco com detalhes dourados"
             loading="lazy"
+            decoding="async"
           >
           <figcaption>Nossa Senhora de Fátima 1</figcaption>
         </figure>
@@ -1194,6 +1163,7 @@
             src="imagens/terco-sao-miguel.webp"
             alt="Terço São Miguel, de contas azuis e medalha central, sobre tecido escuro"
             loading="lazy"
+            decoding="async"
           >
           <figcaption>Terço São Miguel</figcaption>
         </figure>
@@ -1203,6 +1173,7 @@
             src="imagens/nossa-senhora-fatima-2.webp"
             alt="Imagem de Nossa Senhora de Fátima coroada, de manto branco com detalhes dourados"
             loading="lazy"
+            decoding="async"
           >
           <figcaption>Nossa Senhora de Fátima 2</figcaption>
         </figure>
@@ -1210,17 +1181,19 @@
         <figure class="gallery-photo">
           <img
             src="imagens/sagrada-familia.webp"
-            alt="Imagem branca da Sagrada Familia"
+            alt="Imagem branca da Sagrada Família"
             loading="lazy"
+            decoding="async"
           >
-          <figcaption>Sagrada Familia</figcaption>
+          <figcaption>Sagrada Família</figcaption>
         </figure>
 
         <figure class="gallery-photo">
           <img
-            src="imagens/terco-azul.png"
+            src="imagens/terco-azul.webp"
             alt="Terço azul, com as contas formando um coração e crucifixo dourado"
             loading="lazy"
+            decoding="async"
           >
           <figcaption>Terço Azul</figcaption>
         </figure>
@@ -1230,6 +1203,7 @@
             src="imagens/nossa-senhora-aparecida.webp"
             alt="Imagem de Nossa Senhora Aparecida, de manto azul e coroa"
             loading="lazy"
+            decoding="async"
           >
           <figcaption>Nossa Senhora Aparecida</figcaption>
         </figure>
@@ -1240,7 +1214,7 @@
 
   </section>
 
-  <!-- ---------- Antes e Depois ---------- -->
+  <!-- Antes e Depois -->
 
   <section id="antes-depois">
 
@@ -1249,7 +1223,6 @@
       <div class="section-head">
 
         <h2>Antes e depois das restaurações</h2>
-
 
         <p>
           A transformação de cada peça, passo a passo.
@@ -1263,7 +1236,7 @@
 
   </section>
 
-  <!-- ---------- Como funciona ---------- -->
+  <!-- Como funciona -->
 
   <section id="como-funciona">
 
@@ -1273,14 +1246,13 @@
 
         <h2>Como funciona um pedido</h2>
 
-
       </div>
 
-      <div class="steps">
+      <ol class="steps">
 
-        <div class="step">
+        <li class="step">
 
-          <span class="step-number">1</span>
+          <span class="step-number" aria-hidden="true">1</span>
 
           <div class="step-text">
 
@@ -1293,11 +1265,11 @@
 
           </div>
 
-        </div>
+        </li>
 
-        <div class="step">
+        <li class="step">
 
-          <span class="step-number">2</span>
+          <span class="step-number" aria-hidden="true">2</span>
 
           <div class="step-text">
 
@@ -1310,11 +1282,11 @@
 
           </div>
 
-        </div>
+        </li>
 
-        <div class="step">
+        <li class="step">
 
-          <span class="step-number">3</span>
+          <span class="step-number" aria-hidden="true">3</span>
 
           <div class="step-text">
 
@@ -1327,15 +1299,15 @@
 
           </div>
 
-        </div>
+        </li>
 
-      </div>
+      </ol>
 
     </div>
 
   </section>
 
-  <!-- ---------- Contato ---------- -->
+  <!-- Contato -->
 
   <section id="contato">
 
@@ -1382,42 +1354,39 @@
 
 </main>
 
-<!-- ---------- Footer ---------- -->
+<!-- Footer -->
 
 <footer>
 
   <div class="footer-mark">
-    <img src="imagens/logo-bendito-es.png" alt="Marca do ateliê Bendito És" loading="lazy">
+    <img src="imagens/logo-bendito-es-pequena.png" alt="Marca do ateliê Bendito És" width="204" height="169" loading="lazy" decoding="async">
   </div>
 
-  <dl class="footer-register t-micro">
+  <dl class="footer-register">
     <div>
       <dt>Ateliê</dt>
-      <dd class="t-nav">São Bento, Paraíba</dd>
+      <dd>São Bento, Paraíba</dd>
     </div>
     <div>
       <dt>Também em</dt>
-      <dd class="t-nav">Catolé do Rocha, Paraíba</dd>
+      <dd>Catolé do Rocha, Paraíba</dd>
     </div>
   </dl>
 
   <div class="footer-close">
     <a
-      class="t-nav link t-gold"
       href="https://www.instagram.com/ateliebendito_es/"
       target="_blank"
       rel="noopener"
     >@ateliebendito_es</a>
-    <p class="t-legal t-dim">© Bendito És — Todos os direitos reservados</p>
+    <p>© Bendito És — Todos os direitos reservados</p>
   </div>
 
 </footer>
 
-<!-- ---------- JavaScript: Antes e Depois ---------- -->
-
 <script>
-var beforeAfterWorks = [
-
+// Pares de antes e depois. Para incluir outro, copie um bloco e troque textos e arquivos.
+const beforeAfterWorks = [
   {
     title: 'Restauração de São José com o Menino',
     beforeSrc: 'imagens/antes-sao-jose.webp',
@@ -1425,15 +1394,13 @@ var beforeAfterWorks = [
     afterSrc: 'imagens/depois-sao-jose.webp',
     afterAlt: 'Imagem de São José com o Menino Jesus depois da restauração'
   },
-
   {
-    title: 'Restauração da Sagrada Familia',
+    title: 'Restauração da Sagrada Família',
     beforeSrc: 'imagens/antes-sagrada-familia.webp',
-    beforeAlt: 'Peças da Sagrada Familia quebradas antes da restauração',
+    beforeAlt: 'Peças da Sagrada Família quebradas antes da restauração',
     afterSrc: 'imagens/depois-sagrada-familia.webp',
-    afterAlt: 'Sagrada Familia restaurada e completa depois da restauração'
+    afterAlt: 'Sagrada Família restaurada e completa depois da restauração'
   },
-
   {
     title: 'Restauração de Jesus',
     beforeSrc: 'imagens/antes-Jesus.webp',
@@ -1441,354 +1408,108 @@ var beforeAfterWorks = [
     afterSrc: 'imagens/depois-Jesus.webp',
     afterAlt: 'Peça de Jesus depois da restauração'
   }
-
 ];
 
-(function(){
+(() => {
+  const esc = text => String(text ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 
-  var grid = document.getElementById('ba-grid');
+  // Antes e depois
+  const grid = document.getElementById('ba-grid');
 
-  if(!grid) return;
-
-  if(!beforeAfterWorks.length){
-
-    grid.innerHTML =
-      '<div class="ba-empty">' +
-      'Em breve: os trabalhos de restauração antes e depois aparecerão aqui.' +
-      '</div>';
-
-    return;
-  }
-
-  function escapeHtml(str){
-
-    var div = document.createElement('div');
-
-    div.textContent = str || '';
-
-    return div.innerHTML;
-  }
-
-  function renderCards(){
-
-    grid.innerHTML = beforeAfterWorks.map(function(work, index){
-
-      var title = work.title || 'peça';
-
-      return (
-
-        '<div class="ba-card" data-index="' + index + '">' +
-
-          '<div class="ba-card-frame">' +
-
-            '<span class="ba-card-label" data-role="label">' +
-              'Antes' +
-            '</span>' +
-
-            '<img class="ba-card-img is-visible" ' +
-              'data-role="before" ' +
-              'src="' + escapeHtml(work.beforeSrc) + '" ' +
-              'alt="' + escapeHtml(work.beforeAlt || 'Peça antes da restauração') + '" ' +
-              'loading="lazy">' +
-
-            '<img class="ba-card-img" ' +
-              'data-role="after" ' +
-              'src="' + escapeHtml(work.afterSrc) + '" ' +
-              'alt="' + escapeHtml(work.afterAlt || 'Peça depois da restauração') + '" ' +
-              'loading="lazy">' +
-
-            '<button ' +
-              'type="button" ' +
-              'class="ba-card-arrow" ' +
-              'data-role="arrow" ' +
-              'aria-label="Ver depois de ' + escapeHtml(title) + '"' +
-            '>' +
-
-              '<svg ' +
-                'viewBox="0 0 24 24" ' +
-                'fill="none" ' +
-                'stroke="currentColor" ' +
-                'stroke-width="2" ' +
-                'aria-hidden="true" ' +
-                'focusable="false"' +
-              '>' +
-                '<path d="M9 5l7 7-7 7"/>' +
-              '</svg>' +
-
-            '</button>' +
-
-          '</div>' +
-
-          (
-            work.title
-            ? '<p class="ba-card-title">' +
-              escapeHtml(work.title) +
-              '</p>'
-            : ''
-          ) +
-
-        '</div>'
-
-      );
-
+  if (beforeAfterWorks.length) {
+    grid.innerHTML = beforeAfterWorks.map(work => {
+      const title = work.title || 'peça';
+      return `
+        <div class="ba-card">
+          <div class="ba-card-frame">
+            <span class="ba-card-label">Antes</span>
+            <img class="ba-card-img is-visible" src="${esc(work.beforeSrc)}" alt="${esc(work.beforeAlt || 'Peça antes da restauração')}" loading="lazy" decoding="async">
+            <img class="ba-card-img" src="${esc(work.afterSrc)}" alt="${esc(work.afterAlt || 'Peça depois da restauração')}" loading="lazy" decoding="async">
+            <button type="button" class="ba-card-arrow" data-title="${esc(title)}" aria-label="Ver depois de ${esc(title)}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          ${work.title ? `<p class="ba-card-title">${esc(work.title)}</p>` : ''}
+        </div>`;
     }).join('');
-
+  } else {
+    grid.innerHTML = '<div class="ba-empty">Em breve: os trabalhos de restauração antes e depois aparecerão aqui.</div>';
   }
 
-  grid.addEventListener('click', function(e){
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.ba-card-arrow');
+    if (!btn) return;
 
-    var btn = e.target.closest('.ba-card-arrow');
+    const card = btn.closest('.ba-card');
+    const [before, after] = card.querySelectorAll('.ba-card-img');
+    const showAfter = !after.classList.contains('is-visible');
 
-    if(!btn) return;
-
-    var card = btn.closest('.ba-card');
-
-    var beforeImg = card.querySelector('[data-role="before"]');
-    var afterImg = card.querySelector('[data-role="after"]');
-    var label = card.querySelector('[data-role="label"]');
-
-    var work =
-      beforeAfterWorks[
-        parseInt(card.getAttribute('data-index'), 10)
-      ];
-
-    var title =
-      (work && work.title) || 'peça';
-
-    var showingAfter =
-      afterImg.classList.contains('is-visible');
-
-    beforeImg.classList.toggle(
-      'is-visible',
-      showingAfter
-    );
-
-    afterImg.classList.toggle(
-      'is-visible',
-      !showingAfter
-    );
-
-    label.textContent =
-      showingAfter ? 'Antes' : 'Depois';
-
-    btn.classList.toggle(
-      'is-after',
-      !showingAfter
-    );
-
-    btn.setAttribute(
-      'aria-label',
-      (
-        showingAfter
-          ? 'Ver depois de '
-          : 'Ver antes de '
-      ) + title
-    );
-
+    before.classList.toggle('is-visible', !showAfter);
+    after.classList.toggle('is-visible', showAfter);
+    card.querySelector('.ba-card-label').textContent = showAfter ? 'Depois' : 'Antes';
+    btn.classList.toggle('is-after', showAfter);
+    btn.setAttribute('aria-label', `${showAfter ? 'Ver antes de' : 'Ver depois de'} ${btn.dataset.title}`);
   });
 
-  renderCards();
+  // Menu
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-links');
 
-})();
-</script>
-
-<!-- ---------- JavaScript: Menu ---------- -->
-
-<script>
-(function(){
-
-  var toggle = document.getElementById('nav-toggle');
-  var links = document.getElementById('nav-links');
-
-  if(!toggle || !links) return;
-
-  function closeMenu(){
-
-    links.classList.remove('is-open');
-
-    toggle.setAttribute(
-      'aria-expanded',
-      'false'
-    );
-
-    toggle.setAttribute(
-      'aria-label',
-      'Abrir menu'
-    );
-
+  function setMenu(open) {
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   }
 
-  function openMenu(){
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
 
-    links.classList.add('is-open');
-
-    toggle.setAttribute(
-      'aria-expanded',
-      'true'
-    );
-
-    toggle.setAttribute(
-      'aria-label',
-      'Fechar menu'
-    );
-
-  }
-
-  toggle.addEventListener('click', function(){
-
-    var isOpen =
-      links.classList.contains('is-open');
-
-    if(isOpen){
-      closeMenu();
-    }else{
-      openMenu();
-    }
-
+  // fecha ao escolher um link ou ao clicar fora do menu
+  document.addEventListener('click', e => {
+    if (e.target.closest('#nav-links a') || !e.target.closest('#nav-links, #nav-toggle')) setMenu(false);
   });
 
-  links.querySelectorAll('a').forEach(function(link){
-
-    link.addEventListener(
-      'click',
-      closeMenu
-    );
-
-  });
-
-  document.addEventListener('click', function(e){
-
-    if(!links.classList.contains('is-open')) return;
-
-    if(
-      links.contains(e.target) ||
-      toggle.contains(e.target)
-    ) return;
-
-    closeMenu();
-
-  });
-
-  window.addEventListener('resize', function(){
-
-    if(window.innerWidth > 900){
-      closeMenu();
-    }
-
-  });
-
-  document.addEventListener('keydown', function(e){
-
-    if(e.key === 'Escape' && links.classList.contains('is-open')){
-      closeMenu();
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      setMenu(false);
       toggle.focus();
     }
-
   });
 
-})();
-</script>
+  matchMedia('(min-width: 901px)').addEventListener('change', e => {
+    if (e.matches) setMenu(false);
+  });
 
-<!-- ---------- JavaScript: Menu ao rolar ---------- -->
+  // Menu ao rolar e link da seção atual
+  const header = document.querySelector('header');
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = menu.querySelectorAll('a');
+  let queued = false;
 
-<script>
-(function(){
+  function update() {
+    queued = false;
+    header.classList.toggle('is-scrolled', window.scrollY > 10);
 
-  var header = document.querySelector('header');
-
-  if(!header) return;
-
-  function updateHeader(){
-
-    header.classList.toggle(
-      'is-scrolled',
-      (window.pageYOffset || document.documentElement.scrollTop) > 10
-    );
-
+    // vale a seção que cruza o meio da tela; no fim da página, a última
+    let current = sections[0].id;
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= window.innerHeight / 2) current = section.id;
+    });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = sections[sections.length - 1].id;
+    }
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
   }
 
-  window.addEventListener(
-    'scroll',
-    updateHeader,
-    { passive:true }
+  ['scroll', 'resize', 'pageshow'].forEach(type =>
+    window.addEventListener(type, () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true })
   );
 
-  window.addEventListener('pageshow', updateHeader);
-
-  updateHeader();
-
-})();
-</script>
-
-<!-- ---------- JavaScript: Navegação ativa ---------- -->
-
-<script>
-(function(){
-
-  var sections =
-    document.querySelectorAll('main section[id]');
-
-  var navLinks =
-    document.querySelectorAll('.nav-links a');
-
-  function setActive(id){
-
-    navLinks.forEach(function(link){
-
-      var isActive =
-        link.getAttribute('href') === '#' + id;
-
-      link.classList.toggle(
-        'active',
-        isActive
-      );
-
-    });
-
-  }
-
-  if(
-    'IntersectionObserver' in window &&
-    sections.length
-  ){
-
-    var observer =
-      new IntersectionObserver(
-        function(entries){
-
-          entries.forEach(function(entry){
-
-            if(entry.isIntersecting){
-
-              setActive(
-                entry.target.id
-              );
-
-            }
-
-          });
-
-        },
-        {
-          rootMargin:'-45% 0px -50% 0px',
-          threshold:0
-        }
-      );
-
-    sections.forEach(function(section){
-
-      observer.observe(section);
-
-    });
-
-  }else if(sections.length){
-
-    setActive(
-      sections[0].id
-    );
-
-  }
-
+  update();
 })();
 </script>
 
